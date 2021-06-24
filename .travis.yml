@@ -1,11 +1,11 @@
 os: linux
 distro: bionic
 arch: ppc64le
-before_install:
-  - curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
-  - sudo apt-add-repository "deb [arch=ppc64le] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
-  - sudo apt-get update && sudo apt-get install packer
+# before_install:
+#   - curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+#   - sudo apt-add-repository "deb [arch=ppc64le] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+#   - sudo apt-get update && sudo apt-get install packer
 script: 
   - lxc list
-  - lxc launch ubuntu:18.04 test-travis
+  - sudo lxc launch ubuntu:18.04 test-travis
   - lxc list
