@@ -6,6 +6,6 @@ arch: ppc64le
 #   - sudo apt-add-repository "deb [arch=ppc64le] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
 #   - sudo apt-get update && sudo apt-get install packer
 script: 
-  - lxc list
+  - sudo lxd init 
   - sudo lxc launch ubuntu:18.04 test-travis
   - lxc list
