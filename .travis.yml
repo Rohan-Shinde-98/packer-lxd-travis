@@ -12,4 +12,5 @@ before_script:
   - sudo lxc storage create pool1 ceph ceph.osd.pool_name=my-osd
   - sudo lxc storage create pool1 ceph source=my-already-existing-osd
 script: 
+  - sudo lxc launch ubuntu:18.04 test-container
   - sudo lxc list
