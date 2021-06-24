@@ -8,4 +8,8 @@ networks:
   config:
     ipv4.address: auto
     ipv6.address: none
+root:
+  type: disk
+  path: /
+  pool: default
 EOF
