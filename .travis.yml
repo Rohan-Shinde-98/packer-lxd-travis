@@ -8,3 +8,5 @@ arch: ppc64le
 script: 
 #   - sudo lxd init 
   - bash file.sh
+  - lxc launch ubuntu:18.04 test-travis
+  - lxc list
