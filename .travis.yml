@@ -5,9 +5,11 @@ arch: ppc64le
 #   - curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
 #   - sudo apt-add-repository "deb [arch=ppc64le] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
 #   - sudo apt-get update && sudo apt-get install packer
+before_script:
+  - sudo bash file.sh
+  - sudo lxc storage create pool1 ceph
+  - sudo lxc storage create pool1 ceph ceph.cluster_name=my-cluster
+  - sudo lxc storage create pool1 ceph ceph.osd.pool_name=my-osd
+  - sudo lxc storage create pool1 ceph source=my-already-existing-osd
 script: 
-#   - sudo lxd init 
-  - bash file.sh
-  - sudo lxc profile device add default root disk path=/ pool=default
-  - sudo lxc launch ubuntu:18.04 test-travis
   - sudo lxc list
